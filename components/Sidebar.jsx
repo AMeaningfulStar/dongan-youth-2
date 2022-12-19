@@ -4,58 +4,81 @@ import Link from 'next/link'
 import styled from 'styled-components'
 
 const SidebarPanel = styled.div`
-  width: 220px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  clip-path: inset(0px -10px 0px 0px);
+  position: absolute;
+  width: 265.19px;
+  height: 100%;
+  left: -0.01px;
+  background-color: #FBF7F4;
+`
+
+const MenuContents = styled.div`
+  position: absolute;
+  width: 245.17px;
+  left: -0.01px;
+  top: 113.07px;
 `
 
 const NormalButton = styled.button`
-  width: 220px;
+  width: 245.17px;
   height: 60px;
-  padding-left: 1rem;
-  text-align: start;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  gap: 10.01px; 
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  color: #A7A7A7;
+
+  &:hover{
+    background-color: #EEE6E2;
+  }
 `
 
-// const CurrentButton = styled.button`
-//   width: 220px;
-//   height: 60px;
-//   padding-left: 1rem;
-//   text-align: start;
-//   color: #fff;
-//   background-color: #8756bd;
-// `
+const CurrentButton = styled.button`
+  width: 245.17px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 20px;
+  gap: 10.01px; 
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  background-color: #EEE6E2;
+`
+
+const Circle = styled.div`
+  border-radius: 50%;
+  margin-left: 71px;
+`
 
 const Sidebar = () => {
   return (
-    <SidebarPanel className='flex flex-col'>
+    <SidebarPanel>
       <div className='flex' style={{ height: '60px' }}>
         <Logo></Logo>
       </div>
-      <Link href='/'>
-        <NormalButton
-          className='hover:bg-purple-100'
-        >
-          <img className='inline-block mr-2 w-8 h-8' src='https://img.icons8.com/pastel-glyph/512/000000/person-male--v1.png' />
-          <span className='align-middle'>1</span>
-        </NormalButton>
-      </Link>
-      <Link href='/'>
-        <NormalButton
-          className='hover:bg-purple-100'
-        >
-          <img className='inline-block mr-2 w-8 h-8' src='https://img.icons8.com/pastel-glyph/512/000000/person-male--v1.png' />
-          <span className='align-middle'>2</span>
-        </NormalButton>
-      </Link>
-      <Link href='/'>
-        <NormalButton
-          className='hover:bg-purple-100'
-        >
-          <img className='inline-block mr-2 w-8 h-8' src='https://img.icons8.com/pastel-glyph/512/000000/person-male--v1.png' />
-          <span className='align-middle'>3</span>
-        </NormalButton>
-      </Link>
+      <MenuContents>
+        <Link href='/'>
+          <CurrentButton className='hover:text-black'>
+            <span className="material-symbols-outlined text-4xl">person</span>
+            <span className='align-middle'>1학년</span>
+            <Circle className='w-12 h-12 bg-white'>
+              <span className="material-symbols-outlined p-3">arrow_forward</span>
+            </Circle>
+          </CurrentButton>
+        </Link>
+        <Link href='/'>
+        <NormalButton className='hover:text-black'>
+            <span className="material-symbols-outlined text-4xl">person</span>
+            <span className='align-middle'>2학년</span>
+          </NormalButton>
+        </Link>
+      </MenuContents>
     </SidebarPanel>
+
   )
 }
 

@@ -5,10 +5,12 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard-dynamic-subset.css");
 
 html {
-  font-family: Pretendard, -apple-system, BlinkMacSystemFont,
+  font-family: 'Black Han Sans', sans-serif, Pretendard, -apple-system, BlinkMacSystemFont,
     system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo',
     'Malgun Gothic', sans-serif;
   font-size: 16px;
+  font-weight: 800;
+  background-color: #CCC1BE;
 }
 
 html {

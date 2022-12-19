@@ -3,22 +3,24 @@ import Link from 'next/link'
 import styled from 'styled-components'
 
 const LogoBox = styled.button`
-  height: 60px;
+  flex-direction: row;
+  gap: 10.01px;
+  width: 191.01px;
+  height: 33px;
+  left: 32.02px;
+  top: 40px;
 `
 
 const LogoText = styled.div`
-  font-weight: 900;
   font-size: 20px;
 `
 
 const Logo = () => {
   return (
     <Link href='/'>
-      <LogoBox className={`flex items-center`}>
-        <div className='w-14 h-14 rounded-full bg-slate-400'>
-          <Image src='/img/dongan.png' alt='dongan' width={40} height={40} className='m-2'></Image>
-        </div>
-        <LogoText className='ml-2 text-slate-300'>출석하는 동안</LogoText>
+      <LogoBox className={`absolute flex items-center p-0`}>
+        <Image src='/img/dongan.png' alt='dongan' width={40} height={40} ></Image>
+        <LogoText className='ml-2 text-black'>페이지 이름</LogoText>
       </LogoBox>
     </Link>
   )
