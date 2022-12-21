@@ -7,12 +7,12 @@ const LogoBox = styled.button`
   gap: 10.01px;
   width: 191.01px;
   height: 33px;
-  left: 32.02px;
-  top: 40px;
+  left: 36px;
+  top: 35px;
 `
 
 const LogoText = styled.div`
-  font-size: 20px;
+  font-size: 18px;
 `
 
 const Logo = () => {
