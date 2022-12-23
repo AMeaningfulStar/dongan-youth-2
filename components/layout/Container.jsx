@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import styled from 'styled-components'
+import Head from 'next/head';
+import styled from 'styled-components';
 
 const MainTemplate = styled.main`
   position: absolute;
@@ -9,13 +9,13 @@ const MainTemplate = styled.main`
   bottom: 7.58%;
   background-color: #FBF7F4;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-`
+`;
 
 const Container = ({ children }) => {
   return (
     <div className='flex flex-col items-center justify-center select-none'>
       <Head>
-        <title>출석하는 동안</title>
+        <title>출석하는 동안 청소년</title>
         <link rel='icon' href='/img/dongan.png' />
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>

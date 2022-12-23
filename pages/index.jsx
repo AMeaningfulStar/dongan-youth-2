@@ -1,7 +1,8 @@
-import Container from '../components/Container'
+import Container from '../components/layout/Container'
 // import Sidebar from '../components/Sidebar'
 // import Header from '../components/Header'
-import Login from "../components/Login"
+// import Login from "../components/atut/Login"
+import Join from '../components/atut/Join'
 
 export default function IndexPage() {
   return (
@@ -10,7 +11,8 @@ export default function IndexPage() {
     //   <Header></Header>
     // </Container>
     <Container>
-      <Login />  
+      {/* <Login />   */}
+      <Join />
     </Container>
   )
 }

@@ -14,7 +14,7 @@ const Login = () => {
             
             <form action="" className="w-full">
               <div id="input" className="flex flex-col w-full my-5">
-                <label for="username" className="text-gray-500 mb-2">
+                <label htmlFor="username" className="text-gray-500 mb-2">
                   Username
                 </label>
                 <input
@@ -25,7 +25,7 @@ const Login = () => {
                 />
               </div>
               <div id="input" className="flex flex-col w-full my-5">
-                <label for="password" className="text-gray-500 mb-2">
+                <label htmlFor="password" className="text-gray-500 mb-2">
                   Password
                 </label>
                 <input
@@ -38,7 +38,7 @@ const Login = () => {
               <div id="button" className="flex flex-col w-full my-5">
                 <button
                   type="button"
-                  className="w-full py-4 bg-green-600 rounded-lg text-green-100"
+                  className="w-full py-4 bg-[#F8BD8D] rounded-lg text-whit"
                 >
                   <div className="flex flex-row items-center justify-center">
                     <div className="mr-2">
@@ -64,13 +64,15 @@ const Login = () => {
                   <a
                     href="#"
                     className="w-full text-center font-medium text-gray-500"
-                    >Recover password!</a
                   >
+                    Recover password!
+                  </a>
                   <a
-                    href="/sigin/join"
+                    href="/auth/join"
                     className="w-full text-center font-medium text-gray-500"
-                    >Singup!</a
                   >
+                    Singup!
+                  </a>
                 </div>
               </div>
             </form>
