@@ -1,10 +1,10 @@
-import { useState } from "react"
+import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../utils/firebase";
 import { useRouter } from "next/router";
-import React from 'react'
-import Lottie from 'react-lottie-player'
-import lottieJson from '../../public/animation.json'
+import React from 'react';
+import Lottie from 'react-lottie-player';
+import LoginAnimation from '../../public/Login.json';
 
 const Join = () => {
   const router = useRouter();
@@ -16,8 +16,7 @@ const Join = () => {
     userEmail: "",
     password: "",
     passwordConfirmation: "",
-    userName: "",
-    agree: '',
+    userName: ""
   });
 
   // 입력된 정보 검증
@@ -25,6 +24,11 @@ const Join = () => {
     // 정규식
     const emailVerification = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
     const passwordVerification = /^[A-Za-z0-9]{6,12}$/;
+
+    if (signupData.userName === '') {
+      alert('이름을 작성해주세요');
+      return false;
+    }
 
     if (signupData.userEmail.match(emailVerification) === null) {
       alert('올바른 이메일을 작성해주세요');
@@ -41,18 +45,15 @@ const Join = () => {
       return false;
     }
 
+    if (agreeCheck === false) {
+      alert(`약관 및 개인 정보 정책에 동의해주세요`);
+      return false;
+    }
+
     return true;
   }
 
   const handleChange = (userData) => {
-    if(userData.target.name === 'agree') {
-      setAgreeCheck(!agreeCheck)
-      setSignupData({
-        ...signupData,
-        [userData.target.name]: agreeCheck,
-      })  
-    }
-
     setSignupData({
       ...signupData,
       [userData.target.name]: userData.target.value,
@@ -61,23 +62,20 @@ const Join = () => {
 
   const handleSubmit = async (userData) => {
     userData.preventDefault()
-    const res = signupData
-    console.log(res)
-    // try{
-    //   
-    //   if(verification()){
-    //     await createUserWithEmailAndPassword(auth, signupData.userEmail, signupData.password);
+    try{
+      if(verification()){
+        await createUserWithEmailAndPassword(auth, signupData.userEmail, signupData.password);
 
-    //     alert('회원 가입을 축하드립니다.');
-    //     history.replaceState({}, null, location.pathname);
-    //     router.push('/sigin/login');
-    //   }
-    // }catch(error){
-    //   const errorCode = error.code;
-    //   const errorMessage = error.message;
-    //   console.log('errorCode: ' + errorCode + '/ errorMessage: ' + errorMessage);
-    //   alert('회원 가입을 실패했습니다.')
-    // }
+        alert('회원 가입을 축하드립니다.');
+        history.replaceState({}, null, location.pathname);
+        router.push('/auth/login');
+      }
+    }catch(error){
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log('errorCode: ' + errorCode + '/ errorMessage: ' + errorMessage);
+      alert('회원 가입을 실패했습니다.')
+    }
   }
   
   const PasswordShowBtn = () => {
@@ -104,7 +102,7 @@ const Join = () => {
         <div className="flex items-center justify-center">
           <Lottie
             loop
-            animationData={lottieJson}
+            animationData={LoginAnimation}
             play
             style={{ width: 500, height: 500 }}
           />
@@ -191,8 +189,7 @@ const Join = () => {
                 type="checkbox"
                 name="agree"
                 id="agree"
-                defaultValue={signupData.agree}
-                onChange={handleChange}
+                onChange={()=>setAgreeCheck(!agreeCheck)}
                 className="mr-2 accent-white text-sm font-medium text-gray-900 dark:text-gray-300"
               />
               <label htmlFor="remember_me" className="text-gray-700">
